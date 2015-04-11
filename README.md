@@ -12,4 +12,4 @@ No Moodle isso é muito comum, e piora quando a pessoa que instalou o Moodle dei
 # O que faz este Plug-in?
 O Moodle, por padrão, guarda estas informações na sessão, e se a sessão for limpa este taque pode acontecer sem problemas.
 
-Este plug-in analiza cada uma das tentativas de login e caso este indivíduo já ultrapassou o limite máximo de tentativas, bloqueia o acesso e só libera o IP dele após 24 horas.
+Este plug-in analisa cada uma das tentativas de login e caso este indivíduo já ultrapassou o limite máximo de tentativas, bloqueia o acesso e só libera o IP dele após 24 horas.
