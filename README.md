@@ -2,7 +2,7 @@
 Plug-in de proteção contra ataque de Brute Force para o Moodle.
 
 # Como instalar
-Baixe o fonte deste plug-in (arquivo bruteforce.zip) e descompacte-o na pasta moodle/auth e em Administração do site >> Avisos instale o plug-in e o configure.
+Baixe o fonte deste plug-in (arquivo [bruteforce.zip](https://github.com/EduardoKrausME/auth_bruteforce/raw/master/bruteforce.zip)) e descompacte-o na pasta moodle/auth e em Administração do site >> Avisos instale o plug-in e o configure.
 
 # O que é Brute-Force
 Brute force é o nome dado a ataques aonde se usa todas as senhas possíveis para conseguir um acesso.
