@@ -4,7 +4,7 @@
  * Strings for component 'auth_bruteforce', language 'en'.
  *
  * @package   auth_bruteforce
- * @copyright 2014 onwards Eduardo Kraus  {@link http://eduardokraus.com}
+ * @copyright 2015 onwards Eduardo Kraus  {@link http://eduardokraus.com}
  * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
  */
 

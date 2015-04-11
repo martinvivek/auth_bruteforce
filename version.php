@@ -10,6 +10,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2014072700;
-$plugin->requires  = 2014050800;
+$plugin->version   = 2015041100; 
+$plugin->requires  = 2012050800;
 $plugin->component = 'auth_bruteforce';
