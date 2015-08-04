@@ -7,49 +7,69 @@
  * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined ( 'MOODLE_INTERNAL' ) || die();
 
-require_once($CFG->libdir.'/authlib.php');
+require_once ( $CFG->libdir . '/authlib.php' );
 
 /**
  * bruteforce authentication plugin.
  */
-class auth_plugin_bruteforce extends auth_plugin_base {
+class auth_plugin_bruteforce extends auth_plugin_base
+{
 
     /**
      * Constructor.
      */
-    function auth_plugin_bruteforce() {
+    function auth_plugin_bruteforce ()
+    {
         Global $DB, $CFG;
         $this->authtype = 'bruteforce';
-        $this->config = get_config('auth/bruteforce');
+        $this->config = get_config ( 'auth/bruteforce' );
 
+        // check moodle version
         if($CFG->version >= 2014050800)
         {
             $sql = "SELECT id
                     FROM {logstore_standard_log}
-                    WHERE action = 'failed'
-                      AND ip = '".getremoteaddr()."'
-                      AND eventname LIKE '_core_event_user_login_failed'
-                      AND timecreated > (UNIX_TIMESTAMP()-86400) ";
+                    WHERE action = ?
+                      AND ip = ?
+                      AND eventname LIKE ?
+                      AND timecreated > ? ";
+
+            // 86400 = 24 * 60 * 60
+            $tests = $DB->get_records_sql($sql,
+                array(
+                    'failed',
+                    getremoteaddr(),
+                    '_core_event_user_login_failed',
+                    time() - 86400 // 86400 = 24 * 60 * 60
+                )
+            );
         }
         else
         {
             $sql = "SELECT id
                     FROM {log}
-                    WHERE module = 'login'
-                      AND ip = '".getremoteaddr()."'
-                      AND action LIKE 'error'
+                    WHERE module = ?
+                      AND ip = ?
+                      AND action LIKE ?
                       AND time > (UNIX_TIMESTAMP()-86400) ";
+            $tests = $DB->get_records_sql($sql,
+                array(
+                    'login',
+                    getremoteaddr(),
+                    'error',
+                    time() - 86400 // 86400 = 24 * 60 * 60
+                )
+            );
         }
-        $tests = $DB->get_records_sql($sql);
 
-        if (!isset ($this->config->limit)) {
+        if ( !isset ( $this->config->limit ) ) {
             $this->config->limit = 20;
         }
 
-        if(count($tests) >= $this->config->limit )
-            die(get_string("auth_bruteforcebloqued", "auth_bruteforce"));
+        if ( count ( $tests ) >= $this->config->limit )
+            die( get_string ( 'auth_bruteforcebloqued', 'auth_bruteforce' ) );
     }
 
     function user_login ($username, $password) {
@@ -69,7 +89,7 @@ class auth_plugin_bruteforce extends auth_plugin_base {
     }
 
     function config_form($config, $err, $user_fields) {
-        include "config.php";
+        include 'config.php';
     }
 
     function process_config($config) {
