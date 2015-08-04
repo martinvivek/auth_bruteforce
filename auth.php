@@ -29,6 +29,11 @@ class auth_plugin_bruteforce extends auth_plugin_base
         // check moodle version
         if ( $CFG->version >= 2014050800 )
         {
+            $toolsLogEnabled = get_config('tool_log', 'enabled_stores');
+            $testToolsLogEnabled = strpos($toolsLogEnabled, 'logstore_standard');
+            if( $testToolsLogEnabled === false )
+                return;
+
             $sql = "SELECT id
                     FROM {logstore_standard_log}
                     WHERE action = :action

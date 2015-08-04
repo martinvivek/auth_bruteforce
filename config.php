@@ -26,8 +26,8 @@ global $CFG, $OUTPUT;
         </td>
     </tr>
     <?php
-    echo $toolsLogEnabled = get_config('tool_log', 'enabled_stores');
-    echo $testToolsLogEnabled = strpos($toolsLogEnabled, 'logstore_standard');
+    $toolsLogEnabled = get_config('tool_log', 'enabled_stores');
+    $testToolsLogEnabled = strpos($toolsLogEnabled, 'logstore_standard');
 
     if($CFG->version >= 2014050800 && $testToolsLogEnabled === false ) {?>
         <tr>
