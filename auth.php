@@ -36,7 +36,6 @@ class auth_plugin_bruteforce extends auth_plugin_base
                       AND eventname LIKE ?
                       AND timecreated > ? ";
 
-            // 86400 = 24 * 60 * 60
             $tests = $DB->get_records_sql($sql,
                 array(
                     'failed',
@@ -53,7 +52,7 @@ class auth_plugin_bruteforce extends auth_plugin_base
                     WHERE module = ?
                       AND ip = ?
                       AND action LIKE ?
-                      AND time > (UNIX_TIMESTAMP()-86400) ";
+                      AND time > ? ";
             $tests = $DB->get_records_sql($sql,
                 array(
                     'login',

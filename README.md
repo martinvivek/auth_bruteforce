@@ -1,8 +1,16 @@
 # auth_bruteforce
 Plug-in de proteção contra ataque de Brute Force para o Moodle.
 
-# Como instalar
-Para instala-lo, baixe o fonte deste plug-in em [bruteforce.zip](https://github.com/EduardoKrausME/auth_bruteforce/raw/master/bruteforce.zip) e descompacte-o na pasta moodle/auth e depois vá ao menu Administração do site >> Avisos e siga os passos para instalação do Plug-in.
+# Baixar o fonte / Download the source
+git clone https://github.com/EduardoKrausME/auth_bruteforce.git bruteforce
+
+ZIP: https://github.com/EduardoKrausME/auth_bruteforce/zipball/master
+TAR.GZ: https://github.com/EduardoKrausME/auth_bruteforce/tarball/master
+
+# Como instalar  / How to install
+Para instala-lo, baixe o fonte deste plug-in e envie-o para a pasta moodle/auth/bruteforce e depois vá ao menu Administração do site >> Avisos e siga os passos para instalação do Plug-in.
+
+Após, vá em Administração do Site >> Plug-ins >> 
 
 # O que é Brute-Force
 Brute force é o nome dado a ataques aonde se usa todas as senhas possíveis para conseguir um acesso.
