@@ -29,7 +29,7 @@ class auth_plugin_bruteforce extends auth_plugin_base {
             $sql = "SELECT id
                     FROM {logstore_standard_log}
                     WHERE action = 'failed'
-                      AND ip = '".$_SERVER['REMOTE_ADDR']."'
+                      AND ip = '".getremoteaddr()."'
                       AND eventname LIKE '_core_event_user_login_failed'
                       AND timecreated > (UNIX_TIMESTAMP()-86400) ";
         }
@@ -38,7 +38,7 @@ class auth_plugin_bruteforce extends auth_plugin_base {
             $sql = "SELECT id
                     FROM {log}
                     WHERE module = 'login'
-                      AND ip = '".$_SERVER['REMOTE_ADDR']."'
+                      AND ip = '".getremoteaddr()."'
                       AND action LIKE 'error'
                       AND time > (UNIX_TIMESTAMP()-86400) ";
         }
