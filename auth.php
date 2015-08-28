@@ -45,7 +45,7 @@ class auth_plugin_bruteforce extends auth_plugin_base
                 array(
                     'action'      => 'failed',
                     'ip'          => getremoteaddr(),
-                    'eventname'   => '_core_event_user_login_failed',
+                    'eventname'   => '\core\event\user_login_failed',
                     'timecreated' => time() - 86400 // 86400 = 24 * 60 * 60
                 )
             );

@@ -5,6 +5,7 @@ Plug-in de proteção contra ataque de Brute Force para o Moodle.
 git clone https://github.com/EduardoKrausME/auth_bruteforce.git bruteforce
 
 ZIP: https://github.com/EduardoKrausME/auth_bruteforce/zipball/master
+
 TAR.GZ: https://github.com/EduardoKrausME/auth_bruteforce/tarball/master
 
 # Como instalar  / How to install
